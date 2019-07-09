@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button (click)="salir()" ion-button icon-end>
+        Salir
+
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      {{nombrereporte}}
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item>
+  <ion-label color="primary" fixed>Fecha inicial</ion-label>
+  <ion-input [(ngModel)] = "f1" type="date" placeholder="Fecha inicial"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label color="primary" fixed>Fecha Final</ion-label>
+  <ion-input  [(ngModel)] = "f2" type="date" placeholder="Fecha final"></ion-input>
+</ion-item>
+<button [disabled]="f1 == undefined || f2 == undefined" class="boton1" ion-button block type="button" (click)="reporte();">
+  Generar reporte</button>
+  
+
+</ion-content>

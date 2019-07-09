@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>Resumen de la cuenta</ion-title>
+      <ion-buttons left>
+        <button (click)="salir()" ion-button icon-end icon-only>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content>
+        <ion-list  *ngFor="let i of arreglo;let indice = index">
+            <ion-list-header color="light">
+              <strong>Comensal {{indice + 1}} </strong>
+              <ion-icon item-end name="person"></ion-icon>
+            </ion-list-header>
+            <ion-item-sliding *ngFor="let item of i;let ind = index;" (click) = "eliminarLista(item,ind,indice)">
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="{{item.ruta_imagen}}">
+                </ion-thumbnail>
+              <h2><strong>Nombre:</strong>  {{item.nombre}}</h2>
+              <p><strong>Cantidad:</strong>{{item.cantidad}}</p>
+                <ion-icon *ngIf = "item.servido" name="checkmark" item-end></ion-icon>
+                <ion-icon *ngIf = "!item.servido" name="help" item-end></ion-icon>
+              </ion-item>
+            </ion-item-sliding>
+        
+        
+          </ion-list>
+      </ion-content>
+    
+     
+      <ion-footer>
+        <ion-toolbar color="gris" style="text-align: center">
+          <button (click) = "confirmar();" ion-button icon-only color="primary" style="width: 80%;">            
+            Confirmar Orden
+          </button>
+        </ion-toolbar>
+      </ion-footer>

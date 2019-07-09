@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Configuración de la mesa</ion-title>
+    <ion-buttons left>
+      <button (click)="salir()" ion-button icon-end icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="fondo">
+    <img src="../../assets/imgs/logoresutaurante.png" class="logo fadeIn animacion">
+    <div id="container" class="fadeIn animacion">
+      <ion-list>
+        <ion-item id="rounded" >
+          <ion-label fixed>No. </ion-label>
+          <ion-input  #usuario type="text" value="" placeholder = "Comensales"></ion-input>
+        </ion-item>
+
+  
+      </ion-list>
+    </div>
+  </ion-content>
+  
+  

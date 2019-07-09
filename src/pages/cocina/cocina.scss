@@ -1,0 +1,24 @@
+page-cocina {
+ 
+    .fondo{
+
+        background: #f3f3f3;
+    }
+    .background{
+        background-image: url('../../assets/imgs/fondo3.PNG');
+        height: 30%;
+        background-size: cover;
+      }
+
+      .amarillo{
+        background: lightgoldenrodyellow;
+     }
+     .rojo{
+        background: indianred;
+        color:white;
+     }
+     .rojo p{
+        
+        color:rgba(255, 255, 255, 0.747);
+     }
+}

@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <ion-title>Detalle Cuenta</ion-title>
+    <ion-buttons left>
+      <button (click)="salir()" ion-button icon-end icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button (click)="configuracion()" ion-button icon-end icon-only>
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar mode="md" color="fondo">
+    <ion-segment #segments mode="md" [(ngModel)]="page">
+        <ion-segment-button value="0" (click)="selectedTab(0)"  style="color:black;font-size: large;">
+            Categorías
+        </ion-segment-button>
+      <ion-segment-button *ngFor="let item of arreglo;let indice = index" value="{{indice+1}}" (click)="selectedTab(indice+1)"
+        style="color:black;font-size: large;">
+        {{item.nombre}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fondo">
+  <ion-slides #slider (ionSlideDidChange)="slideChanged()">
+      <ion-slide>
+        
+          <ion-content class="fondo">
+              <div cards>
+    
+                  <div class="grid-full">
+                      
+                          <ion-row>
+                            <ion-col *ngFor="let item of arregloCategoria;let numero = index" col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+                              <div class="divs" (click) = "selectedTab(numero + 1)">
+                                <img src="../../assets/imgs/categoriasimg.PNG" alt="">
+                                <h5>{{item.nombre}}</h5>
+                              </div>
+                            </ion-col>
+                          </ion-row>
+                        
+                  </div>          
+                </div>
+          </ion-content>
+          
+        </ion-slide>
+    <ion-slide *ngFor="let item of arreglo;let indice = index;">
+        
+          
+      <ion-content class="fondo">
+        <div cards>
+          <div class="grid-full">
+            <ion-grid>
+              <ion-row>
+                <ion-col *ngFor="let i of arreglo[indice].productos;let indice2 = index;" col-12 col-sm-12 col-md-4 col-lg-1 col-xl-1>
+                  <div class="divs">
+                    <img [src]="i.ruta_imagen" alt="">
+                    <div style="font-size: smaller">{{i.nombre}}</div>
+                    <div style="color: #636262;font-size: xx-small">{{i.descripcion}}</div>
+                    <div style="color: #636262;font-size: smaller">{{i.precio | currency}}</div>
+                    <button ion-button icon-only color="rosado" style="border-radius: 50%;" (click)="restar(indice,indice2);" >
+                      <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button icon-only class="estiloBoton" (click) = "agregarObservaciones(i)">
+                     {{getcantidad(indice,indice2)}}
+                    </button>
+                    <button ion-button icon-only color="rosado" style="border-radius: 50%;" (click)="sumar(indice,indice2);">
+                      <ion-icon name="add"></ion-icon>
+                    </button>
+                    <div style="color: #636262;font-size: small">Añadir a mesa</div>
+                    <div>
+                      <button (click) = "addMesa(i)" ion-button icon-only color="rosado" style="border-radius: 10%;
+                          width: 100%;">
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="gris" style="text-align: center">
+      <button (click) = "verCuenta();" ion-button icon-only color="light" style="width: 80%;">            
+        Ver cuenta
+      </button>
+    </ion-toolbar>
+  </ion-footer>

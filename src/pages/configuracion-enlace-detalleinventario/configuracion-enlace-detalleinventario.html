@@ -1,0 +1,43 @@
+
+<ion-header>
+  <ion-navbar color="primary">  
+    <ion-title>
+      Inventario
+    </ion-title>
+    <ion-buttons left>
+        <button (click)="salir()" ion-button icon-end icon-only>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+
+      <ion-item *ngFor="let i of arreglo;let indice = index">
+        <ion-label>{{i.descripcion}} <p>{{i.unidad_medida}}</p></ion-label>
+        
+        <ion-checkbox [(ngModel)]="i.elegido" ></ion-checkbox>
+        <div item-end class="estilobotones"  *ngIf="i.elegido">
+            <button ion-button color="rojo" (click)="restar(indice);" icon-only>
+              <ion-icon name="remove"></ion-icon>
+            </button>
+            <input type="text" placeholder=" " [value]="getcantidad(indice)" disabled>
+            <button ion-button icon-only color="botones" (click)="sumar(indice);">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </div>
+      </ion-item>      
+    </ion-list>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="gris" style="text-align: center">
+      <button (click) = "hecho();" ion-button icon-only color="primary" style="width: 40%;">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+  </ion-toolbar>
+</ion-footer>

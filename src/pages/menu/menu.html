@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+        <button (click)="salir()" ion-button icon-end>
+            Salir
+          
+        </button>
+      </ion-buttons>
+
+    <ion-title>
+      Menú
+    </ion-title>
+   
+  </ion-navbar>
+</ion-header>
+  
+  <ion-content class="fondo">
+      <ion-grid class="background" >
+        <ion-row  style="height: 100%;">
+          
+        </ion-row>
+      </ion-grid>
+    <h3>Categorias</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let item of arreglo" col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+          <div class="divs" (click) = "subcatalogo(item.id)">
+            <img src="../../assets/imgs/categoriasimg.PNG" alt="">
+            <h5>{{item.nombre}}</h5>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  

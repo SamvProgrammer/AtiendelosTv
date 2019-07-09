@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Gestión de inventarios
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+  <ion-list>
+    <ion-item>
+      <ion-icon name="person" item-start></ion-icon>
+      <ion-label stacked>Descripción:</ion-label>
+      <ion-input formControlName="descripcion" type="text" placeholder="Descripción"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person" item-start></ion-icon>
+      <ion-label stacked>Cantidad:</ion-label>
+      <ion-input formControlName="cantidad" type="number" placeholder="Cantidad"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label stacked>Seleccionar Unidad de Medida</ion-label>
+        <ion-select formControlName="unidad" multiple="false">
+          <ion-option  value="Pz">Pieza</ion-option>
+          <ion-option  value="Gr">Gramos</ion-option>
+          <ion-option  value="mm">Mililitros</ion-option>
+        </ion-select>
+      </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block type="submit" [disabled]="!myForm.valid">{{boton}}</button>
+  </div>
+</form>
+</ion-content>

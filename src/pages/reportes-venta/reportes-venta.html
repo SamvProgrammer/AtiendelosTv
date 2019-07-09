@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ReportesMenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+        <button (click)="salir()" ion-button icon-end>
+            Salir
+          
+        </button>
+      </ion-buttons>
+
+    <ion-title>
+      Reportes por ventas
+    </ion-title>
+   
+  </ion-navbar>
+</ion-header>
+<ion-content class="fondo">
+
+<h3>Reporteador por ventas</h3>
+<ion-grid>
+  <ion-row>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "fechaReportes(1)">
+        <img src="../../assets/imgs/fechareportes.png" alt="">
+        <h5>Ventas por fecha</h5>
+      </div>
+    </ion-col>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "fechaReportes(2)">
+        <img src="../../assets/imgs/mesareporte.PNG" alt="">
+        <h5>Ventas por mesa</h5>
+      </div>
+    </ion-col>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "fechaReportes(3)">
+        <img src="../../assets/imgs/meseroreporte.png" alt="">
+        <h5>Ventas por mesero</h5>
+      </div>
+    </ion-col>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "totales()">
+        <img src="../../assets/imgs/totalreporte.jpg" alt="">
+        <h5>Ventas totales</h5>
+      </div>
+    </ion-col>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "fechaReportes(4)">
+        <img src="../../assets/imgs/sucursalreporte.png" alt="">
+        <h5>Ventas por sucursal</h5>
+      </div>
+    </ion-col>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "fechaReportes(5)">
+        <img src="../../assets/imgs/detalle.png" alt="">
+        <h5>Ventas totales(detalle)</h5>
+      </div>
+    </ion-col>
+    <ion-col  col-6 col-sm-4  col-md-3 col-lg-2 col-xl-1>
+      <div class="divs" (click) = "fechaReportes(6)">
+        <img src="../../assets/imgs/foodbeerreportes.jpg" alt="">
+        <h5>Ventas por barra y cocina</h5>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+

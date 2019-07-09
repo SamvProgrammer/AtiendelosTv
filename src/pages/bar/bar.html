@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+        <button (click)="salir()" ion-button icon-end>
+            Salir
+          
+        </button>
+      </ion-buttons>
+
+    <ion-title>
+      Notificaciones Barra
+    </ion-title>
+   
+  </ion-navbar>
+</ion-header>
+<ion-content class="fondo">
+  <ion-refresher (ionRefresh)="actualizando($event)" >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+<ion-list>
+  <ion-item-sliding  *ngFor="let i of arreglo" (click) = "servido(i)">
+    <ion-item [ngClass]="{amarillo:i.minutos_transcurridos>=3 && i.minutos_transcurridos<9,rojo:i.minutos_transcurridos>=9}">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/iconbarra.PNG">
+      </ion-avatar>
+      <ion-grid>
+
+          <ion-row>
+              <ion-col>
+                <div>
+                  <h3>PRODUCTO</h3>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div style="text-align: center;">
+                  <h3>CANTIDAD</h3>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div style="text-align: center;">
+                  <h3>OBSERVACIONES</h3>
+                </div>
+              </ion-col>
+              <ion-col style="text-align: center;">
+                  <div >
+                  <h3>MESA</h3>
+                  </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                      <h3>MESERO</h3>
+                    </div>
+                  </ion-col>
+            </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <div>
+                  <h2>{{i.producto}} {{i.categoria}} </h2>
+              </div>
+            </ion-col>
+            <ion-col style="text-align: center;">
+              <div>
+                  <h2> {{i.cantidad}}</h2>
+              </div>
+            </ion-col>
+            <ion-col style="text-align: center">
+              <div>
+                  <p> {{i.observaciones}} </p>
+ 
+              </div>
+            </ion-col>
+            <ion-col style="text-align: center;">
+                <div>
+                    <p> {{i.id_mesa}}</p>
+                </div>
+              </ion-col>
+              <ion-col>
+                  <div>
+                      <p> {{i.nombre}}</p>
+                  </div>
+                </ion-col>
+              
+          </ion-row>
+        </ion-grid>
+        
+    </ion-item>
+  </ion-item-sliding>
+</ion-list>
+
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button (click)="salir()" ion-button icon-end>
+        Salir
+
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Notificaciones cocina
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-grid class="background">
+    <ion-row style="height: 100%;">
+
+    </ion-row>
+  </ion-grid>
+  <h3>Seleccionar mesa</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of arreglo;let indice = index" col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1>
+        <div class="divs" [ngClass]="{'ocupado':item.colorear,'marcando':item.clase}" (click)="marcar(indice)">
+          <img src="../../assets/icon/mesaicon.PNG"
+            alt="">
+          <h5>Mesa {{item.id_mesa}}</h5>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer [className]="menutogle ? 'menuemergente':'desaparecermenu'">
+  <ion-toolbar>
+    <button (click)="agregar();" ion-button icon-only color="nuevo">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <button *ngIf="boolCancelar == true" (click)="cancelar();" ion-button icon-only color="cancelar">
+      <ion-icon name="close-circle"></ion-icon>
+    </button>
+    <button *ngIf="boolCobrar == true" (click)="preticketImprimir();" ion-button icon-only color="light">
+      <ion-icon name="print"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>

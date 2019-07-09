@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Resumen de la cuenta</ion-title>
+    <ion-buttons left>
+      <button (click)="salir()" ion-button icon-end icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-content>
+    <ion-grid>
+      <ion-row class="cabecera">
+        <ion-col col-3 >
+          <STRONG>Nombre</STRONG>
+        </ion-col>
+        <ion-col col-3 >
+          <STRONG>Cantidad</STRONG>
+        </ion-col>
+        <ion-col col-3 >
+          <STRONG>C/U</STRONG>
+        </ion-col>
+        <ion-col class="izquierda">
+          <STRONG>Total</STRONG>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let i of arreglo">
+        <ion-col col-3>
+          {{i.nombre}}
+        </ion-col>
+        <ion-col col-3>
+          {{i.cantidad}}
+        </ion-col>
+        <ion-col col-3>
+          {{i.unitario | currency}}
+        </ion-col>
+        <ion-col class="derecha2">
+          {{i.precio_total | currency}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="cabecera" >
+        <ion-col col-8 class = "derecha">
+          <strong>Total: </strong>
+        </ion-col>
+        <ion-col class = "derecha">
+          <strong>{{total | currency}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+ 
+  <ion-footer>
+    <ion-toolbar color="gris" style="text-align: center">
+      <button (click) = "cobrar();" ion-button icon-only color="primary" style="width: 80%;">            
+        Cobrar
+      </button>
+    </ion-toolbar>
+  </ion-footer>
+
+  

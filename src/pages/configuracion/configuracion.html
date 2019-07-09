@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Configuraciones
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider color="light">Sección inventarios</ion-item-divider>
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/enlace.png">
+        </ion-avatar>
+        <h2>Enlazar a productos</h2>
+        <button (click)="abrirpagina();" color="blue" ion-button item-end>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">Conexiones bluetooth</ion-item-divider>
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/bluetooth.png">
+        </ion-avatar>
+        <h2>Configurar bluetooth</h2>
+        <button (click)="abrirpaginabluetooth();" color="blue" ion-button item-end>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">Configuraciones generales</ion-item-divider>
+    <ion-list>
+       <ion-item>
+          <ion-avatar item-start>
+              <img src="../../assets/imgs/iconnotifi.png">
+            </ion-avatar>
+          <ion-label>Tiempo real notif. Cocina/Barra</ion-label>
+          <ion-toggle [(ngModel)]="notificacion" ></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-avatar item-start>
+              <img src="../../assets/imgs/iconnotifi.png">
+            </ion-avatar>
+          <ion-label>Solicitud de cancelación mesero</ion-label>
+          <ion-toggle [(ngModel)]="cancelacion" ></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-avatar item-start>
+              <img src="../../assets/imgs/iconnotifi.png">
+            </ion-avatar>
+          <ion-label>Autoriza cancelaciones</ion-label>
+          <ion-toggle [(ngModel)]="autorizacion" ></ion-toggle>
+        </ion-item>
+    </ion-list>
+  </ion-item-group>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="gris" style="text-align: center">
+      <button (click) = "guardarCambios();" ion-button icon-only color="light" style="width: 80%;">            
+        Guardar cambios
+      </button>
+    </ion-toolbar>
+  </ion-footer>

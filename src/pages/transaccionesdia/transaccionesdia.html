@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+        <button (click)="salir()" ion-button icon-end>
+            Salir
+          
+        </button>
+      </ion-buttons>
+
+    <ion-title>
+      Transacciones del día
+    </ion-title>
+   
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-refresher (ionRefresh)="actualizandoTransacciones($event)" >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid class="background">
+    <ion-row style="height: 100%;">
+
+    </ion-row>
+  </ion-grid>
+  <ion-list >
+      <ion-list-header color="light">
+          <strong>Transacciones del día</strong>
+          <ion-icon item-end name="person"></ion-icon>
+        </ion-list-header>
+    <ion-item-sliding *ngFor = "let i of arreglo" >
+      <ion-item [ngClass]="{'rojito': i.cancelado}">
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/hombre.jpg">
+        </ion-avatar>
+        <h2>Mesa: {{i.id_mesa}}</h2>
+        <p>Número de folio: {{i.id_folio}}</p>
+        <strong item-end>Total: {{i.total | currency}}</strong>
+      </ion-item>  
+      <ion-item-options side="right" *ngIf="!i.cancelado">
+        <button color="light" (click) = "reimprimir(i);" ion-button><ion-icon name="print"></ion-icon>Reimprimir
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

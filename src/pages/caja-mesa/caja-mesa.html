@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button (click)="salir()" ion-button icon-end>
+        Salir
+
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Mesas a cobrar
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <h3>Seleccionar mesa</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of arreglo;let indice = index" col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1>
+        <div class="divs" [ngClass]="{'ocupado':item.colorear,'marcando':item.clase}" (click)="marcar(indice)">
+          <img src="../../assets/icon/mesaicon.PNG"
+            alt="">
+          <h5>Mesa {{item.id_mesa}}</h5>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer [className]="menutogle ? 'menuemergente':'desaparecermenu'">
+  <ion-toolbar>
+
+    <button *ngIf="boolCancelar == true" (click)="cancelar();" ion-button icon-only color="cancelar">
+      <ion-icon name="close-circle"></ion-icon>
+    </button>
+    <button *ngIf="boolCobrar == true" (click)="cobrar();" ion-button icon-only color="success">
+      <ion-icon name="cash"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>

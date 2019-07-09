@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Conexiones bluetooth
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="../../assets/imgs/cajeroicon.PNG">
+          </ion-avatar>
+      <h2>Conectar impresora cajero</h2>
+      <button (click)="dispositivos('cajero');" color="blue" ion-button item-end>
+        <ion-icon  name="arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+          <img src="../../assets/imgs/iconcocina.PNG">
+        </ion-avatar>
+    <h2>Conectar impresora cocina</h2>
+    <button (click)="dispositivos('cocina');" color="blue" ion-button item-end>
+      <ion-icon  name="arrow-forward"></ion-icon>
+    </button>
+  </ion-item>
+  <ion-item>
+    <ion-avatar item-start>
+        <img src="../../assets/imgs/barraicon.PNG">
+      </ion-avatar>
+  <h2>Conectar impresora barra</h2>
+  <button (click)="dispositivos('barra');" color="blue" ion-button item-end>
+    <ion-icon  name="arrow-forward"></ion-icon>
+  </button>
+</ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+          <img src="../../assets/imgs/printer.PNG">
+        </ion-avatar>
+    <h2>Imprimir prueba</h2>
+    <button (click)="imprimir();" color="blue" ion-button item-end>
+      <ion-icon  name="arrow-forward"></ion-icon>
+    </button>
+  </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-navbar color="navegador">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button (click)="salir()" ion-button icon-end>
+        Salir
+
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Corte de caja
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content class="fondo">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Elegir fecha a buscar</ion-label>
+          <ion-datetime display-format="MMM DD, YYYY" monthShortNames='Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic' doneText="Hecho" cancelText="Cancelar" [(ngModel)] = "fecha"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-9>
+  
+      </ion-col>
+      <ion-col >
+        <button ion-button block type="button" (click)="buscar();">
+          Buscar</button>
+      </ion-col>
+    </ion-row>
+    <div *ngIf = "aparecer == true">
+      
+    <ion-row class="totales fondototal">
+      <ion-col>
+        <ion-item>
+          <ion-label>  <ion-icon name="logo-usd"></ion-icon> Ventas totales</ion-label>           
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>  <ion-icon name="podium"></ion-icon> Ganancia</ion-label>           
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row   class="totales">
+      <ion-col>
+        <ion-item>
+          <ion-label>{{totales | currency}}</ion-label>           
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{totales - totalSalida | currency}}</ion-label>           
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="totales2 fondototal2">
+      <ion-col>
+        <ion-item>
+          <ion-label> <ion-icon name="cash"></ion-icon> Ventas</ion-label>           
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="totales2" *ngFor="let item of efectivo">
+      <ion-col>
+        <ion-item style="font-size: medium;">
+          <ion-label [ngClass]="{'negritas': item.tipo_pago == 'TOTAL'}"> {{item.tipo_pago}}</ion-label>           
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item style="font-size: medium;" >
+          <ion-label [ngClass]="{'negritas': item.tipo_pago == 'TOTAL'}"> {{item.total| currency}}</ion-label>           
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="totales2 fondototal2">
+      <ion-col>
+        <ion-item>
+          <ion-label> <ion-icon name="cash"></ion-icon> Salidas en efectivo</ion-label>           
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="totales2">
+      <ion-col>
+        <ion-list>
+          <ion-item-sliding *ngFor="let i of salidas;let indice = index">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/salidaefectivo.png">
+              </ion-avatar>
+            <h2 style="text-align: initial"> {{i.nombre}}</h2>
+            <strong item-end >{{i.dinero | currency}}</strong>
+            </ion-item>
+            <ion-item-options side="right">
+                <button color="success" ion-button (click) = "actualizar(i)">
+                    <ion-icon name="brush"></ion-icon>Modificar
+                  </button>
+              <button color="danger" (click) = "eliminar(i)" ion-button>
+                <ion-icon name="trash"></ion-icon>Eliminar
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+      
+      
+        </ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/salidaefectivo.png">
+          </ion-avatar>
+        <h2 style="text-align: initial"> Total</h2>
+        <strong item-end >{{totalSalida | currency}}</strong>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="totales2 fondototal2">
+      <ion-col>        
+        <ion-item style="background: white">
+          <button (click)="addSalidas()" item-end style="width:10%" ion-button icon-only color="light" type="button">
+  
+            <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    </div>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="gris" style="text-align: center">
+    <button (click) = "corte();" ion-button icon-only color="light" style="width: 80%;">            
+      Realizar corte
+    </button>
+  </ion-toolbar>
+</ion-footer>
