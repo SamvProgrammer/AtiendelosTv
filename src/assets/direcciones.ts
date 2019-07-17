@@ -1,4 +1,4 @@
-export const ip:string = "https://atiendelos.herokuapp.com";
+export const ip:string = "https://lobsterpuntodeventa.herokuapp.com";
 //export const ip:string = "http://10.172.23.241:8080";
 export const direcciones:any = {
     usuarios:ip+"/catalogos/usuarios",
