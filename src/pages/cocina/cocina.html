@@ -28,7 +28,7 @@
   <ion-item-sliding  *ngFor="let i of arreglo" (click) = "servido(i)">
     <ion-item [ngClass]="{amarillo:i.minutos_transcurridos>=3 && i.minutos_transcurridos<9,rojo:i.minutos_transcurridos>=9}">
       <ion-avatar item-start>
-        <img src="../../assets/imgs/pedido.jpg">
+        <img src="">
       </ion-avatar>
       <ion-grid>
 
@@ -63,7 +63,7 @@
           <ion-row>
             <ion-col>
               <div>
-                  <h2>{{i.producto}} {{i.categoria}} </h2>
+                  <h2>{{i.producto}}</h2>
               </div>
             </ion-col>
             <ion-col style="text-align: center;">
