@@ -4,6 +4,7 @@ import { TicketsProvider } from '../../providers/tickets/tickets';
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 import { GlobalesProvider } from '../../providers/globales/globales';
 
+
 /**
  * Generated class for the CocinaPage page.
  *
@@ -22,6 +23,7 @@ export class CocinaPage {
   private minutos;
   private notificar = -1;
   private id_sucursal;
+  private contadorglobal = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private ticketPrd: TicketsProvider,
     private alerta: AlertController, private toasCtrl: ToastController, private usuariosPrd: UsuariosProvider,
@@ -31,6 +33,23 @@ export class CocinaPage {
     this.ticketPrd.notificaciones(this.id_sucursal,1).subscribe(datos => {
       this.arreglo = datos;
       this.ultimamodificacion = new Date();
+      let contadorlocal = this.arreglo.length;
+      console.log(this.contadorglobal);
+      if(this.contadorglobal < contadorlocal){
+        let audio = new Audio();
+        console.log("Se va a reporducir");
+        audio.src = '../../assets/notificacion.mp3';
+        audio.load();
+        audio.play();
+        this.contadorglobal = contadorlocal;
+      }
+      else{
+
+        this.contadorglobal = contadorlocal;
+      }
+
+
+      console.log(this.contadorglobal);
     });
   }
 
@@ -43,6 +62,18 @@ export class CocinaPage {
             this.arreglo = datos;
             this.ultimamodificacion = new Date();
             this.notificar = datosnotificar.notificar;
+            let contadorlocal = this.arreglo.length;
+            if(this.contadorglobal < contadorlocal){
+              let audio = new Audio();
+              console.log("Se va a reporducir");
+              audio.src = '../../assets/notificacion.mp3';
+              audio.load();
+              audio.play();
+              this.contadorglobal = contadorlocal;
+            }else{
+              this.contadorglobal = contadorlocal;
+            }
+
           });
         } else {
           let ahora: any = new Date();
@@ -54,6 +85,18 @@ export class CocinaPage {
           if (this.minutos >= 1) {
             this.ticketPrd.notificaciones(this.id_sucursal,1).subscribe(datos => {
               this.arreglo = datos;
+
+              let contadorlocal = this.arreglo.length;
+              if(this.contadorglobal < contadorlocal){
+                let audio = new Audio();
+                console.log("Se va a reporducir");
+                audio.src = '../../assets/notificacion.mp3';
+                audio.load();
+                audio.play();
+                this.contadorglobal = contadorlocal;
+              }else{
+                this.contadorglobal = contadorlocal;
+              }
 
             });
             this.ultimamodificacion = new Date();

@@ -70,6 +70,7 @@ export class UsuariosAddPage {
       transacciones: obj.transacciones
     });
   }
+  
   saveData() {
     let obj = this.myForm.value;
     let login = obj.usuario;

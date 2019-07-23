@@ -4,6 +4,7 @@ import { TabsPage } from '../tabs/tabs';
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 import { SucursalesProvider } from '../../providers/sucursales/sucursales';
 import { Storage } from '@ionic/storage';
+import { CocinaPage } from '../cocina/cocina';
 
 
 
@@ -42,7 +43,7 @@ export class LoginPage {
         this.storage.set('obj', datos);
         this.storage.set('logeado', true);
         console.log(datos);
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(CocinaPage);
       } else {
         let toas = this.toasCtrl.create({ message: "Usuario / Contraseña invalidos", duration: 1500 });
         toas.present();
@@ -85,7 +86,7 @@ export class LoginPage {
         this.storage.set('obj', datos);
         this.storage.set('logeado', true);
         console.log(datos);
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(CocinaPage);
       } else {
         let toas = this.toasCtrl.create({ message: "Usuario / Contraseña invalidos", duration: 1500 });
         toas.present();

@@ -1,21 +1,4 @@
-<ion-header>
-  <ion-navbar color="navegador">
-    <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-buttons end>
-      <button (click)="salir()" ion-button icon-end>
-        Salir
 
-      </button>
-    </ion-buttons>
-
-    <ion-title>
-      Notificaciones cocina
-    </ion-title>
-
-  </ion-navbar>
-</ion-header>
 <ion-content class="fondo">
   <ion-refresher (ionRefresh)="actualizando($event)">
     <ion-refresher-content></ion-refresher-content>
@@ -25,17 +8,17 @@
   <ion-list>
 
     <ion-item-sliding *ngFor="let i of arreglo" (click)="servido(i)">
-      <ion-item [ngClass]="{amarillo:i.minutos_transcurridos>=3 && i.minutos_transcurridos<9,rojo:i.minutos_transcurridos>=9}" no-padding no-margin>
+      <ion-item [ngClass]="{amarillo:i.minutos_transcurridos>=10 && i.minutos_transcurridos<15,rojo:i.minutos_transcurridos>=16}" no-padding no-margin>
 
         <ion-grid no-padding no-margin>
 
           <ion-row text-center >
-            <ion-col>
-              <div >
+            <ion-col col-5>
+              <div>
                   <small>PRODUCTO</small>
               </div>
             </ion-col >
-            <ion-col size="2">
+            <ion-col >
               <small>CANTIDAD</small>
             </ion-col>
             <ion-col>
@@ -47,12 +30,12 @@
           </ion-row>
 
           <ion-row text-center>
-            <ion-col>
+            <ion-col col-5>
               <div >
-                <h1>{{i.producto}}</h1>
+               <marquee> <h1>{{i.categoria}} {{i.producto}}</h1></marquee>
               </div>
             </ion-col>
-            <ion-col>
+            <ion-col col-2>
               <h1> {{i.cantidad}}</h1>
             </ion-col>
             <ion-col>
